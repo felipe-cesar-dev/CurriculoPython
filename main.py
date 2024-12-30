@@ -1,20 +1,21 @@
+from Model.ClassesAbstratas.TratarPalavra import TratarpalavraAbstrata
 from Model.ClassesConcretas.ArmazenarInfosContato import ArmazenarInfosContato
-from Model.Tratadores.TratarCelularConcreto import TratarCelularConcreto
-from Model.Tratadores.TratarEmailConcreto import TratarEmailConcreto
-from Model.Tratadores.TratarEnderecoConcreto import TratarEnderecoConcreto
-from View.ClassesConcretas.InfosContato.CelularView import Celular
-from View.ClassesConcretas.InfosContato.EmailView import Email
-from View.ClassesConcretas.InfosContato.EnderecoView import Endereco
+from Model.Tratadores.TratarDataConcreta import TratarDataConcreta
+from Model.Tratadores.TratarPalavraConcreta import TratarPalavraConcreta
+from View.ClassesConcretas.InfosPessoais.DataNascimentoView import DataNascimento
+from View.ClassesConcretas.InfosPessoais.EstadoCivilView import EstadoCivil
+from View.ClassesConcretas.InfosPessoais.NacionalidadeView import Nacionalidade
 
-t = TratarCelularConcreto()
-u = TratarEnderecoConcreto()
+a1 = TratarDataConcreta()
+b1 = TratarPalavraConcreta()
+
 ar = ArmazenarInfosContato()
 
-a = Celular(t, ar)
+a = DataNascimento(a1, ar)
 a.capturar_dados()
-
-b = Endereco(u, ar)
+b = EstadoCivil(b1, ar)
 b.capturar_dados()
-
+c = Nacionalidade(b1, ar)
+c.capturar_dados()
 
 print(ar.get_dado())
