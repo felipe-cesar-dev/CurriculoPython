@@ -1,7 +1,7 @@
 from Model.ClassesAbstratas.Armazenar import Armazenar
 
 
-class ArmazenarInfosPessoais(Armazenar):
+class ArmazenarRedesSociais(Armazenar):
  def __init__(self):
     super().__init__()
     self.__dado = []
@@ -10,4 +10,4 @@ class ArmazenarInfosPessoais(Armazenar):
     self.__dado.append(dado)
 
  def get_dado(self):
-    return f'Informações de contato: {self.__dado}'
+    return f'Redes Sociais: {self.__dado}'
