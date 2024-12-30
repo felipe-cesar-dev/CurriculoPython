@@ -1,10 +1,11 @@
-from Model.ClassesConcretas.ArmazenarDados import ArmazenarDados
-from Model.Tratadores.TratarPalavraConcreta import TratarPalavraConcreta
-from View.ClassesConcretas.DadosPrincipais.NomeView import Nome
+from Model.ClassesConcretas.ArmazenarInfosContato import ArmazenarInfosContato
+from Model.Tratadores.TratarCelularConcreto import TratarCelularConcreto
+from View.ClassesConcretas.InfosContato.CelularView import Celular
 
-t = TratarPalavraConcreta()
-b = ArmazenarDados()
-a = Nome(t,b)
+t = TratarCelularConcreto()
+ar = ArmazenarInfosContato()
+
+a = Celular(t, ar)
 a.capturar_dados()
 
-print(b.get_nome())
+print(ar.get_dado())
