@@ -21,12 +21,21 @@ class TratarDataConcreta(TratarData):
                 print(e)
 
     def tratar_mes_ano(self, mesAno):
+        dataminima = datetime.strptime('01/1900', '%m/%Y')
+        datamax = datetime.now()
+
         try:
-            if not datetime.strptime(mesAno, '%m/%Y'):
-                raise ValueError
-            else: return mesAno
-        except ValueError:
-            print('Data inválida!')
+            data = datetime.strptime(mesAno, '%m/%Y')
+            if data < dataminima or data > datamax:
+                raise ValueError("Digite uma data entre 01/1900 e a data atual")
+            return mesAno
+        except ValueError as e:
+            if "unconverted data remains" in str(e) or "time data" in str(e):
+                print("Data inválida")
+            else:
+                print(f"Erro: {e}")
+            return None
+
 
 
 
