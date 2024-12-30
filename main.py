@@ -1,11 +1,10 @@
-from Model.ClassesConcretas.ArmazenarRedesSociais import ArmazenarRedesSociais
-from Model.Tratadores.TratarRedeConcreta import TratarRedeConcreta
-from View.ClassesConcretas.RedesSociais.RedesView import Rede
+from Model.ClassesConcretas.ArmazenarSessaoPrincipal import ArmazenarSessaoPrincipal
+from Model.Tratadores.TratarDataConcreta import TratarDataConcreta
+from View.ClassesConcretas.SessaoPrincipal.ExperienciaProfissionalView import ExperienciaProfissional
 
-ar = ArmazenarRedesSociais()
-t=TratarRedeConcreta()
-a=Rede(t, ar)
-
+t = TratarDataConcreta()
+ar = ArmazenarSessaoPrincipal()
+a = ExperienciaProfissional(t, ar)
 a.capturar_dados()
 
 print(ar.get_dado())

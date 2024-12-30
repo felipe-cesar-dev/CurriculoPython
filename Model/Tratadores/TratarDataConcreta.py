@@ -20,5 +20,14 @@ class TratarDataConcreta(TratarData):
             except ValueError as e:
                 print(e)
 
+    def tratar_mes_ano(self, mesAno):
+        try:
+            if not datetime.strptime(mesAno, '%m/%Y'):
+                raise ValueError
+            else: return mesAno
+        except ValueError:
+            print('Data inválida!')
+
+
 
 

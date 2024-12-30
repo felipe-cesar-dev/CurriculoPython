@@ -1,11 +1,9 @@
 from Model.ClassesAbstratas.Armazenar import Armazenar
-from Model.ClassesAbstratas.TratarRede import TratarRede
 from View.ClassesAbstratas.Dados import Dados
 
 class Rede(Dados):
-    def __init__(self, tratador: TratarRede, armazenar: Armazenar):
+    def __init__(self, armazenar: Armazenar):
         super().__init__()
-        self._tratador = tratador
         self.__armazenar = armazenar
 
     def capturar_dados(self):
