@@ -6,5 +6,5 @@ class ControleTratamentoAbs(ABC):
         self.__tratador = tratador
 
     @abstractmethod
-    def tratar_palavra(self, palavra):
+    def tratar_dado(self, dado):
         pass
