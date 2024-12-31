@@ -11,3 +11,6 @@ class ControleArmazenamentoAbs(ABC):
     @abstractmethod
     def recuperar_dado(self):
          pass
+    @abstractmethod
+    def imprimir_dados(self):
+        pass

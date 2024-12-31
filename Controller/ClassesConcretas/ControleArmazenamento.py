@@ -7,8 +7,11 @@ class ControleArmazenamento(ControleArmazenamentoAbs):
         self.__armazenar = armazenar
 
     def armazenar_dado(self, nome):
-        self.__armazenar.armazenar_dado({"Nome" : nome})
+        self.__armazenar.armazenar_dado(nome)
 
 
     def recuperar_dado(self):
          self.__armazenar.get_dado()
+
+    def imprimir_dados(self):
+        print(self.__armazenar.get_dado())
