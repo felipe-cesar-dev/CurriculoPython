@@ -1,20 +1,19 @@
-from Model.ClassesAbstratas.Armazenar import Armazenar
-from Model.ClassesAbstratas.TratarPalavra import TratarpalavraAbstrata
+from Controller.ClassesConcretas.ControleArmazenamento import ControleArmazenamentoAbs
+from Controller.ClassesConcretas.ControleTratamento import ControleTratamentoAbs
 from View.ClassesAbstratas.Dados import Dados
 
-
 class EstadoCivil(Dados):
-    def __init__(self, tratador: TratarpalavraAbstrata, armazenar: Armazenar):
+    def __init__(self, tratador: ControleTratamentoAbs, controlar: ControleArmazenamentoAbs):
         super().__init__()
         self.__tratador = tratador
-        self.__armazenar = armazenar
+        self.__controlar = controlar
 
     def capturar_dados(self):
         while True:
             try:
-                estadoCivil = input('Digite seu estado civil: ')
-                self.__tratador.tratar_palavra(estadoCivil)
-                self.__armazenar.armazenar_dado({"Estado Civil": estadoCivil})
-                return self.__armazenar.get_dado()
-            except ValueError:
-                print('Formato Inválido!')
+                estadoc = input('Digite seu estado Civil: ')
+                self.__tratador.tratar_dado(estadoc)
+                self.__controlar.armazenar_dado({'Estado Civil': estadoc})
+                return self.__controlar.imprimir_dados()
+            except ValueError as e:
+                print(e)

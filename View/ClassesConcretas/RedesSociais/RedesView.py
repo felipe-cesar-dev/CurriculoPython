@@ -1,8 +1,8 @@
-from Model.ClassesAbstratas.Armazenar import Armazenar
+from Controller.ClassesAbstratas.ControleArmazenamentoAbs import ControleArmazenamentoAbs
 from View.ClassesAbstratas.Dados import Dados
 
-class Rede(Dados):
-    def __init__(self, armazenar: Armazenar):
+class RedeView(Dados):
+    def __init__(self, armazenar: ControleArmazenamentoAbs):
         super().__init__()
         self.__armazenar = armazenar
 
@@ -35,6 +35,7 @@ class Rede(Dados):
                         print("Digite algo!")
                     else:
                         self.__armazenar.armazenar_dado({"Rede": rede, "Perfil" : link})
+                        self.__armazenar.imprimir_dados()
                         return
 
 

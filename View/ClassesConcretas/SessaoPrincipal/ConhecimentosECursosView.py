@@ -1,9 +1,9 @@
-from Model.ClassesAbstratas.Armazenar import Armazenar
+from Controller.ClassesConcretas.ControleArmazenamento import ControleArmazenamento
 from View.ClassesAbstratas.Dados import Dados
 
 
 class ConhecimentoseCursos(Dados):
-    def __init__(self, armazenar: Armazenar):
+    def __init__(self, armazenar: ControleArmazenamento):
         super().__init__()
         self.__armazenar = armazenar
 
@@ -33,6 +33,7 @@ class ConhecimentoseCursos(Dados):
                 print("Digite algo!")
             else:
                         self.__armazenar.armazenar_dado({"Capacitação" : cc})
+                        self.__armazenar.imprimir_dados()
                         return
 
 

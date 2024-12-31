@@ -8,3 +8,7 @@ class ControleTratamentoAbs(ABC):
     @abstractmethod
     def tratar_dado(self, dado):
         pass
+
+    @abstractmethod
+    def verificar_len_zero(self, dado):
+        pass

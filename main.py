@@ -1,35 +1,14 @@
 from Controller.ClassesConcretas.ControleArmazenamento import ControleArmazenamento
-from Controller.ClassesConcretas.ControleTratamentoCel import ControleTratamentoCel
-from Controller.ClassesConcretas.ControleTratamentoEmail import ControleTratamentoEmail
-from Controller.ClassesConcretas.ControleTratamentoEndereco import ControleTratamentoEndereco
-from Model.ClassesConcretas.ArmazenarInfosContato import ArmazenarInfosContato
-from Model.Tratadores.TratarCelularConcreto import TratarCelularConcreto
-from Model.Tratadores.TratarEmailConcreto import TratarEmailConcreto
-from Model.Tratadores.TratarEnderecoConcreto import TratarEnderecoConcreto
-from View.ClassesConcretas.InfosContato.CelularView import Celular
-from View.ClassesConcretas.InfosContato.EmailView import Email
-from View.ClassesConcretas.InfosContato.EnderecoView import Endereco
+from Controller.ClassesConcretas.ControleTratamento import ControleTratamento
+from Model.ClassesConcretas.ArmazenarSessaoPrincipal import ArmazenarSessaoPrincipal
+from Model.Tratadores.TratarPalavraConcreta import TratarPalavraConcreta
+from View.ClassesConcretas.SessaoPrincipal.SobreMimView import SobreMim
 
-armaz = ArmazenarInfosContato()
-cArmaz = ControleArmazenamento(armaz)
+tratar = TratarPalavraConcreta()
+ctratar = ControleTratamento(tratar)
 
-tratar = TratarCelularConcreto()
-cTratar = ControleTratamentoCel(tratar)
+armaz = ArmazenarSessaoPrincipal()
+carmaz = ControleArmazenamento(armaz)
 
-etratar = TratarEnderecoConcreto()
-Etratar = ControleTratamentoEndereco(etratar)
-
-
-
-a = Celular(cTratar, cArmaz)
+a = SobreMim(ctratar, carmaz)
 a.capturar_dados()
-
-btratou = TratarEmailConcreto()
-bTratar = ControleTratamentoEmail(btratou)
-
-b = Email(bTratar, cArmaz)
-
-b.capturar_dados()
-
-c = Endereco(Etratar, cArmaz)
-c.capturar_dados()

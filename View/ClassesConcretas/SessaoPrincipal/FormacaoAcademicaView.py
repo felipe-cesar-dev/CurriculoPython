@@ -1,10 +1,11 @@
+from Controller.ClassesConcretas.ControleArmazenamento import ControleArmazenamento
 from Model.ClassesAbstratas.Armazenar import Armazenar
 from Model.ClassesAbstratas.TratarData import TratarData
 from View.ClassesAbstratas.Dados import Dados
 
 
 class FromacaoAcademica(Dados):
-    def __init__(self, tratador: TratarData, armazenar: Armazenar):
+    def __init__(self, tratador: TratarData, armazenar: ControleArmazenamento):
         super().__init__()
         self.__armazenar = armazenar
         self.__tratador = tratador

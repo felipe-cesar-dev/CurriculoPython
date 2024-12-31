@@ -12,7 +12,7 @@ class NomeView(Dados):
         while True:
             try:
                 nome = input('Digite seu nome: ')
-                self.__tratador.tratar_palavra(nome)
+                self.__tratador.tratar_dado(nome)
                 self.__controlar.armazenar_dado({'Nome': nome})
                 return self.__controlar.imprimir_dados()
             except ValueError as e:
