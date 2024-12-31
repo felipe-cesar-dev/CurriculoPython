@@ -37,7 +37,7 @@ class ExperienciaProfissional(Dados):
                         while True:
                             fim = input(f"Digite a data de saída da empresa {empresa.title()} (MM/AAAA):\n"
                                         f"Digite 'Atualmente' se ainda não estiver terminado: ")
-                            if self.__tratador.tratar_mes_ano(fim) or fim == 'Atualmente':
+                            if self.__tratador.tratar_mes_ano(fim):
                                 self.__armazenar.armazenar_dado({"Empresa": empresa, "Início": inicio, "Término": fim})
                                 return
                             else:

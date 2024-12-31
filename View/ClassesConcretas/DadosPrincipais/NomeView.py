@@ -1,20 +1,19 @@
-from Model.ClassesAbstratas.Armazenar import Armazenar
-from Model.ClassesAbstratas.TratarPalavra import TratarpalavraAbstrata
+from Controller.ClassesConcretas.ControleArmazenamento import ControleArmazenamentoAbs
+from Controller.ClassesConcretas.ControleTratamento import ControleTratamentoAbs
 from View.ClassesAbstratas.Dados import Dados
 
-
 class Nome(Dados):
-    def __init__(self, tratador: TratarpalavraAbstrata, armazenar: Armazenar):
+    def __init__(self, tratador: ControleTratamentoAbs, controlar: ControleArmazenamentoAbs):
         super().__init__()
         self.__tratador = tratador
-        self.__armazenar = armazenar
+        self.__controlar = controlar
 
     def capturar_dados(self):
         while True:
             try:
                 nome = input('Digite seu nome: ')
                 self.__tratador.tratar_palavra(nome)
-                self.__armazenar.armazenar_dado({'Nome': nome})
-                return self.__armazenar.get_dado()
+                self.__controlar.armazenar_dado({'Nome': nome})
+                return self.__controlar.recuperar_dado()
             except ValueError as e:
                 print(e)
