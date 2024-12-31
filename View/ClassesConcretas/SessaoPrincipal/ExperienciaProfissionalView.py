@@ -1,6 +1,3 @@
-from math import expm1
-from multiprocessing.managers import Value
-
 from Model.ClassesAbstratas.Armazenar import Armazenar
 from Model.ClassesAbstratas.TratarData import TratarData
 from View.ClassesAbstratas.Dados import Dados
@@ -30,7 +27,7 @@ class ExperienciaProfissional(Dados):
             else: print("Digite um número válido!")
     def questionario_experiencia_prof(self):
         while True:
-            empresa = input("Digite o nome da empresa: ")
+            empresa = input("Digite o cargo e nome da empresa (ex: Acessor - ACME LTDA): ")
             if len(empresa) == 0:
                 print("Digite algo!")
             else:
@@ -38,8 +35,9 @@ class ExperienciaProfissional(Dados):
                     inicio = input(f"Digite a data de começo na empresa {empresa.title()} (MM/AAAA): ")
                     if self.__tratador.tratar_mes_ano(inicio):
                         while True:
-                            fim = input(f"Digite a data de saída da empresa {empresa.title()} (MM/AAAA): ")
-                            if self.__tratador.tratar_mes_ano(fim):
+                            fim = input(f"Digite a data de saída da empresa {empresa.title()} (MM/AAAA):\n"
+                                        f"Digite 'Atualmente' se ainda não estiver terminado: ")
+                            if self.__tratador.tratar_mes_ano(fim) or fim == 'Atualmente':
                                 self.__armazenar.armazenar_dado({"Empresa": empresa, "Início": inicio, "Término": fim})
                                 return
                             else:

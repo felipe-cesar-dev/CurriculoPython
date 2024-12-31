@@ -14,7 +14,7 @@ class Nome(Dados):
             try:
                 nome = input('Digite seu nome: ')
                 self.__tratador.tratar_palavra(nome)
-                self.__armazenar.armazenar_nome({'Nome': nome})
-                return self.__armazenar.get_nome()
+                self.__armazenar.armazenar_dado({'Nome': nome})
+                return self.__armazenar.get_dado()
             except ValueError as e:
                 print(e)

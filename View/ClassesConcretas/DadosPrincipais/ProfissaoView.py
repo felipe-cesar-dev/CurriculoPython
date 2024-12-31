@@ -14,7 +14,7 @@ class Profissao(Dados):
             try:
                 profissao = input('Digite seu profissão: ')
                 self.__tratador.tratar_palavra(profissao)
-                self.__armazenar.armazenar_nome({'Profissão': profissao})
-                return self.__armazenar.get_nome()
+                self.__armazenar.armazenar_dado({'Profissão': profissao})
+                return self.__armazenar.get_dado()
             except ValueError as e:
                 print(e)

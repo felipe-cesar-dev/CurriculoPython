@@ -25,6 +25,8 @@ class TratarDataConcreta(TratarData):
         datamax = datetime.now()
 
         try:
+            if mesAno == "Atualmente":
+                return mesAno
             data = datetime.strptime(mesAno, '%m/%Y')
             if data < dataminima or data > datamax:
                 raise ValueError("Digite uma data entre 01/1900 e a data atual")
