@@ -1,7 +1,3 @@
-from Controller.ClassesConcretas.ControleArmazenamento import ControleArmazenamento
-from Model.ClassesConcretas.ArmazenarSessaoPrincipal import ArmazenarSessaoPrincipal
-from Model.Tratadores.TratarDataConcreta import TratarDataConcreta
-from View.ClassesConcretas.SessaoPrincipal.FormacaoAcademicaView import FromacaoAcademica
+from Builders.Director import Director
 
-a = FromacaoAcademica(TratarDataConcreta(), ControleArmazenamento(ArmazenarSessaoPrincipal()))
-a.capturar_dados()
+app = Director()
