@@ -12,7 +12,7 @@ class Celular(Dados):
     def capturar_dados(self):
         while True:
             try:
-                celular = input('Digite seu celular: ')
+                celular = input('Digite seu celular (11 digitos, somente números): ')
                 self.__tratador.tratar_celular(celular)
                 self.__controlar.armazenar_dado({'Celular' : celular})
                 return self.__controlar.imprimir_dados()
