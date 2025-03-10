@@ -1,14 +1,17 @@
+from Controller.ClassesAbstratas.ControleArmazenamentoAbs import ControleArmazenamentoAbs
 from Controller.ClassesConcretas.ControleArmazenamento import ControleArmazenamento
 from Controller.ClassesConcretas.ControleTratamento import ControleTratamento
-from Model.ClassesConcretas.ArmazenarSessaoPrincipal import ArmazenarSessaoPrincipal
+from Model.ClassesAbstratas.Armazenar import Armazenar
+from Model.ClassesConcretas.ArmazenarDadosPrincipais import ArmazenarDadosPrincipais
 from Model.Tratadores.TratarPalavraConcreta import TratarPalavraConcreta
-from View.ClassesConcretas.SessaoPrincipal.SobreMimView import SobreMim
+from View.ClassesConcretas.DadosPrincipais.NomeView import NomeView
+from View.ClassesConcretas.DadosPrincipais.ProfissaoView import Profissao
 
-tratar = TratarPalavraConcreta()
-ctratar = ControleTratamento(tratar)
+a = ControleArmazenamento(ArmazenarDadosPrincipais())
+b = ControleTratamento(TratarPalavraConcreta())
+c = NomeView(b,a)
 
-armaz = ArmazenarSessaoPrincipal()
-carmaz = ControleArmazenamento(armaz)
+c.capturar_dados()
 
-a = SobreMim(ctratar, carmaz)
-a.capturar_dados()
+
+

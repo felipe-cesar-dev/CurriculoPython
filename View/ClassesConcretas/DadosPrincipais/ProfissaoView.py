@@ -1,7 +1,6 @@
-from Controller.ClassesAbstratas.ControleArmazenamentoAbs import ControleArmazenamentoAbs
-from Controller.ClassesAbstratas.ControleTratamentoAbs import ControleTratamentoAbs
+from Controller.ClassesConcretas.ControleArmazenamento import ControleArmazenamentoAbs
+from Controller.ClassesConcretas.ControleTratamento import ControleTratamentoAbs
 from View.ClassesAbstratas.Dados import Dados
-
 
 class Profissao(Dados):
     def __init__(self, tratador: ControleTratamentoAbs, controlar: ControleArmazenamentoAbs):
@@ -12,8 +11,8 @@ class Profissao(Dados):
     def capturar_dados(self):
         while True:
             try:
-                profissao = input('Digite seu profissão: ')
-                self.__tratador.tratar_palavra(profissao)
+                profissao = input('Digite sua profissão: ')
+                self.__tratador.tratar_dado(profissao)
                 self.__controlar.armazenar_dado({'Profissão': profissao})
                 return self.__controlar.imprimir_dados()
             except ValueError as e:
