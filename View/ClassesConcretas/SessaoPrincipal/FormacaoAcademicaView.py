@@ -1,11 +1,10 @@
-from Controller.ClassesConcretas.ControleArmazenamento import ControleArmazenamento
-from Model.ClassesAbstratas.Armazenar import Armazenar
+from Controller.ClassesAbstratas.ControleArmazenamentoAbs import ControleArmazenamentoAbs
 from Model.ClassesAbstratas.TratarData import TratarData
 from View.ClassesAbstratas.Dados import Dados
 
 
 class FromacaoAcademica(Dados):
-    def __init__(self, tratador: TratarData, armazenar: ControleArmazenamento):
+    def __init__(self, tratador: TratarData, armazenar: ControleArmazenamentoAbs):
         super().__init__()
         self.__armazenar = armazenar
         self.__tratador = tratador
@@ -38,6 +37,7 @@ class FromacaoAcademica(Dados):
                             fim = input(f"Digite a data de término da formação {formacao.title()} (MM/AAAA):")
                             if self.__tratador.tratar_mes_ano(fim):
                                 self.__armazenar.armazenar_dado({"Formação": formacao, "Início": inicio, "Término": fim})
+                                self.__armazenar.imprimir_dados()
                                 return
                             else:
                                 pass
