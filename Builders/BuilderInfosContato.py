@@ -15,7 +15,7 @@ from Controller.ClassesConcretas.ControleArmazenamento import ControleArmazename
 class BuilderInfosContato(BuilderAbstract):
     def __init__(self):
         super().__init__()
-        self.__celular = int
+        self.__celular = ''
         self.__email = ''
         self.__endereco = ''
 
