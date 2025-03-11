@@ -24,7 +24,6 @@ class NomeView(Dados):
                 try:
                     profissao = input('Digite sua profissão: ')
                     self.__tratador.tratar_dado(profissao)
-                    self.__controlar.armazenar_dado('dados_unicos', 'profissao', profissao)
                     break
                 except ValueError as e:
                     print(e)

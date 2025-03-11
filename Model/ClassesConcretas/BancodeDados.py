@@ -7,8 +7,8 @@ class BancodeDados(BancodeDadosAbs):
         self.conexao = None
         self.cursor = None
 
-    def bd(self):
-        self.conexao = sqlite3.connect('../../db.db')
+    def conectar(self):
+        self.conexao = sqlite3.connect('db.db')
         self.cursor = self.conexao.cursor()
 
         # Criar tabela principal
@@ -80,7 +80,7 @@ class BancodeDados(BancodeDadosAbs):
 
     def armazenar_dado(self, tabela, coluna, dado):
         if not self.conexao:
-            self.bd()
+            self.conectar()
         self.cursor.execute(f"INSERT INTO {tabela} ({coluna}) VALUES (?)", (dado,))
         self.conexao.commit()
 
