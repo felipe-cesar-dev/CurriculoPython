@@ -7,18 +7,83 @@ class BancodeDados(BancodeDadosAbs):
         self.conexao = None
         self.cursor = None
 
-    def conectar(self, nome_do_banco):
-        self.conexao = sqlite3.connect('curriculo.db')
+    def bd(self):
+        self.conexao = sqlite3.connect('../../db.db')
         self.cursor = self.conexao.cursor()
 
+        # Criar tabela principal
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS dados_unicos (
+                nome TEXT PRIMARY KEY,
+                profissao TEXT,
+                celular TEXT,
+                email TEXT,
+                endereco TEXT,
+                data_de_nascimento TEXT,
+                estado_civil TEXT,
+                nacionalidade TEXT,
+                sobre_mim TEXT
+            );
+        ''')
+
+        # Criar tabela experiência profissional
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS experiencia_profissional (
+                id INTEGER PRIMARY KEY,
+                nome TEXT,
+                data_inicio TEXT,
+                data_fim TEXT,
+                FOREIGN KEY (nome) REFERENCES dados_unicos (nome)
+            );
+        ''')
+
+        # Criar tabela formação acadêmica
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS formacao_academica (
+                id INTEGER PRIMARY KEY,
+                nome TEXT,
+                data_inicio TEXT,
+                data_fim TEXT,
+                FOREIGN KEY (nome) REFERENCES dados_unicos (nome)
+            );
+        ''')
+
+        # Criar tabela conhecimentos
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS conhecimentos_cursos (
+                id INTEGER PRIMARY KEY,
+                nome TEXT,
+                FOREIGN KEY (nome) REFERENCES dados_unicos (nome)
+            );
+        ''')
+
+        # Criar tabela redes sociais
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS redes_sociais (
+                id INTEGER PRIMARY KEY,
+                nome TEXT,
+                link TEXT,
+                FOREIGN KEY (nome) REFERENCES dados_unicos (nome)
+            );
+        ''')
+
+        # Criar tabela sobre mim
+        self.cursor.execute('''
+            CREATE TABLE IF NOT EXISTS sobre_mim (
+                id INTEGER PRIMARY KEY,
+                nome TEXT,
+                FOREIGN KEY (nome) REFERENCES dados_unicos (nome)
+            );
+        ''')
+
+        self.conexao.commit()
+
     def armazenar_dado(self, tabela, coluna, dado):
+        if not self.conexao:
+            self.bd()
         self.cursor.execute(f"INSERT INTO {tabela} ({coluna}) VALUES (?)", (dado,))
         self.conexao.commit()
 
     def fechar_conexao(self):
-        self.conexao.close()
-
-
-
-
-
+        if self.conexao:
+            self.conexao.close()

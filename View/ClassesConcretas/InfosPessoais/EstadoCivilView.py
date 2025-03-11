@@ -1,5 +1,5 @@
 from Controller.ClassesAbstratas.ControleArmazenamentoAbs import ControleArmazenamentoAbs
-from Controller.ClassesConcretas.ControleTratamento import ControleTratamentoAbs
+from Controller.ClassesAbstratas.ControleTratamentoAbs import ControleTratamentoAbs
 from View.ClassesAbstratas.Dados import Dados
 
 class EstadoCivil(Dados):
@@ -13,7 +13,8 @@ class EstadoCivil(Dados):
             try:
                 estadoc = input('Digite seu estado Civil: ')
                 self.__tratador.tratar_dado(estadoc)
-                self.__controlar.armazenar_dado({'Estado Civil': estadoc})
+                self.__controlar.armazenar_dado('dados_unicos', 'estado_civil', estadoc)
                 return self.__controlar.imprimir_dados()
             except ValueError as e:
                 print(e)
+
