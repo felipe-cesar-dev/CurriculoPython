@@ -7,5 +7,5 @@ class ArmazenamentoGeral:
     def armazenenamento(self, dado):
         self.__armazenamento.append(dado)
 
-    def imprimir_aramanemanto(self):
+    def imprimir_armazenamento(self):
         print(f'Itens armazenados: {self.__armazenamento}')
