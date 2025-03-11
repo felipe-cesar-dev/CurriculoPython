@@ -14,7 +14,7 @@ class Profissao(Dados):
                 try:
                     profissao = input('Digite sua profissão: ')
                     self.__tratador.tratar_dado(profissao)
-                    self.__controlar.armazenar_dado('dados_unicos', 'nome', profissao)
+                    self.__controlar.armazenar_dado('dados_unicos', 'profissao', profissao)
                     self.__dados.append(f'Profissão: {profissao}')
                     break
                 except ValueError as e:
