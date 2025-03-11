@@ -1,5 +1,6 @@
 from Model.ClassesAbstratas.Armazenar import Armazenar
 from Controller.ClassesAbstratas.ControleArmazenamentoAbs import ControleArmazenamentoAbs
+import sqlite3
 
 class ControleArmazenamento(ControleArmazenamentoAbs):
     def __init__(self, armazenar: Armazenar):
