@@ -1,4 +1,4 @@
-from Controller.ClassesConcretas.ControleArmazenamento import ControleArmazenamentoAbs
+from Controller.ClassesAbstratas.ControleArmazenamentoAbs import ControleArmazenamentoAbs
 from Controller.ClassesConcretas.ControleTratamento import ControleTratamentoAbs
 from View.ClassesAbstratas.Dados import Dados
 

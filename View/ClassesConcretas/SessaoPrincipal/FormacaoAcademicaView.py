@@ -2,7 +2,6 @@ from Controller.ClassesAbstratas.ControleArmazenamentoAbs import ControleArmazen
 from Model.ClassesAbstratas.TratarData import TratarData
 from View.ClassesAbstratas.Dados import Dados
 
-
 class FromacaoAcademica(Dados):
     def __init__(self, tratador: TratarData, armazenar: ControleArmazenamentoAbs):
         super().__init__()

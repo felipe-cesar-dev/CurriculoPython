@@ -3,7 +3,6 @@ from Model.ClassesAbstratas.TratarData import TratarData
 from View.ClassesAbstratas.Dados import Dados
 
 
-
 class ExperienciaProfissional(Dados):
     def __init__(self, tratador: TratarData, armazenar: ControleArmazenamentoAbs):
         super().__init__()

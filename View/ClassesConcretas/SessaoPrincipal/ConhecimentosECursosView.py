@@ -1,9 +1,9 @@
-from Controller.ClassesConcretas.ControleArmazenamento import ControleArmazenamento
+from Controller.ClassesAbstratas.ControleArmazenamentoAbs import ControleArmazenamentoAbs
 from View.ClassesAbstratas.Dados import Dados
 
 
 class ConhecimentoseCursos(Dados):
-    def __init__(self, armazenar: ControleArmazenamento):
+    def __init__(self, armazenar: ControleArmazenamentoAbs):
         super().__init__()
         self.__armazenar = armazenar
 

@@ -2,7 +2,6 @@ from Controller.ClassesAbstratas.ControleArmazenamentoAbs import ControleArmazen
 from Controller.ClassesAbstratas.ControleTratamentoAbs import ControleTratamentoAbs
 from View.ClassesAbstratas.Dados import Dados
 
-
 class SobreMim(Dados):
     def __init__(self, tratador: ControleTratamentoAbs, armazenar: ControleArmazenamentoAbs):
         super().__init__()
