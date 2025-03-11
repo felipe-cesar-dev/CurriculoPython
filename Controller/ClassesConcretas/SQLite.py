@@ -8,7 +8,7 @@ cursor = conexao.cursor()
 
 # Criar tabela principal
 cursor.execute('''
-    CREATE TABLE IF NOT EXISTS cadastro_pessoal (
+    CREATE TABLE IF NOT EXISTS dados_unicos (
         nome TEXT PRIMARY KEY,
         profissao TEXT,
         celular TEXT,
@@ -28,7 +28,7 @@ cursor.execute('''
         nome TEXT,
         data_inicio TEXT,
         data_fim TEXT,
-        FOREIGN KEY (nome) REFERENCES cadastro_pessoal (nome)
+        FOREIGN KEY (nome) REFERENCES dados_unicos (nome)
     );
 ''')
 
@@ -39,7 +39,7 @@ cursor.execute('''
         nome TEXT,
         data_inicio TEXT,
         data_fim TEXT,
-        FOREIGN KEY (nome) REFERENCES cadastro_pessoal (nome)
+        FOREIGN KEY (nome) REFERENCES dados_unicos (nome)
     );
 ''')
 
@@ -48,7 +48,7 @@ cursor.execute('''
     CREATE TABLE IF NOT EXISTS conhecimentos_cursos (
         id INTEGER PRIMARY KEY,
         nome TEXT,
-        FOREIGN KEY (nome) REFERENCES cadastro_pessoal (nome)
+        FOREIGN KEY (nome) REFERENCES dados_unicos (nome)
     );
 ''')
 
@@ -58,7 +58,7 @@ cursor.execute('''
         id INTEGER PRIMARY KEY,
         nome TEXT,
         link TEXT,
-        FOREIGN KEY (nome) REFERENCES cadastro_pessoal (nome)
+        FOREIGN KEY (nome) REFERENCES dados_unicos (nome)
     );
 ''')
 
@@ -66,7 +66,7 @@ cursor.execute('''
     CREATE TABLE IF NOT EXISTS sobre_mim (
         id INTEGER PRIMARY KEY,
         nome TEXT,
-        FOREIGN KEY (nome) REFERENCES cadastro_pessoal (nome)
+        FOREIGN KEY (nome) REFERENCES dados_unicos (nome)
     );
 ''')
 
