@@ -2,32 +2,27 @@ from Controller.ClassesAbstratas.ControleArmazenamentoAbs import ControleArmazen
 from Controller.ClassesAbstratas.ControleTratamentoAbs import ControleTratamentoAbs
 from View.ClassesAbstratas.Dados import Dados
 
-class NomeView(Dados):
+class Profissao(Dados):
     def __init__(self, tratador: ControleTratamentoAbs, controlar: ControleArmazenamentoAbs):
         super().__init__()
         self.__tratador = tratador
         self.__controlar = controlar
+        self.__dados = []
 
-    def capturar_dados(self, nome=None, profissao=None):
-        if nome is None:
-            while True:
-                try:
-                    nome = input('Digite seu nome: ')
-                    self.__tratador.tratar_dado(nome)
-                    self.__controlar.armazenar_dado('dados_unicos', 'nome', nome)
-                    break
-                except ValueError as e:
-                    print(e)
-
-        if profissao is None:
+    def capturar_dados(self):
             while True:
                 try:
                     profissao = input('Digite sua profissão: ')
                     self.__tratador.tratar_dado(profissao)
+                    self.__controlar.armazenar_dado('dados_unicos', 'nome', profissao)
+                    self.__dados.append(f'Profissão: {profissao}')
                     break
                 except ValueError as e:
                     print(e)
-        return
+
+
+    def get_dados(self):
+        return self.__dados
 
 
 

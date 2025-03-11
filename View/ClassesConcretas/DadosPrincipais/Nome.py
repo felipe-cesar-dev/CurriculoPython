@@ -2,7 +2,7 @@ from Controller.ClassesAbstratas.ControleArmazenamentoAbs import ControleArmazen
 from Controller.ClassesAbstratas.ControleTratamentoAbs import ControleTratamentoAbs
 from View.ClassesAbstratas.Dados import Dados
 
-class EstadoCivil(Dados):
+class NomeView(Dados):
     def __init__(self, tratador: ControleTratamentoAbs, controlar: ControleArmazenamentoAbs):
         super().__init__()
         self.__tratador = tratador
@@ -10,16 +10,22 @@ class EstadoCivil(Dados):
         self.__dados = []
 
     def capturar_dados(self):
-        while True:
-            try:
-                estadoc = input('Digite seu estado Civil: ')
-                self.__tratador.tratar_dado(estadoc)
-                self.__controlar.armazenar_dado('dados_unicos', 'estado_civil', estadoc)
-                self.__dados.append(f'Estado cívil: {estadoc}')
-                return self.__controlar.imprimir_dados()
-            except ValueError as e:
-                print(e)
+            while True:
+                try:
+                    nome = input('Digite seu nome: ')
+                    self.__tratador.tratar_dado(nome)
+                    self.__controlar.armazenar_dado('dados_unicos', 'nome', nome)
+                    self.__dados.append(f'Nome: {nome}')
+                    break
+                except ValueError as e:
+                    print(e)
+
 
     def get_dados(self):
         return self.__dados
+
+
+
+
+
 
