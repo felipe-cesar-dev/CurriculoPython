@@ -1,7 +1,7 @@
 import sqlite3
 
 # Conectar ao banco de dados
-conexao = sqlite3.connect('curriculo.db')
+conexao = sqlite3.connect('../../Model/ClassesConcretas/curriculo.db')
 
 # Criar um cursor
 cursor = conexao.cursor()
