@@ -1,25 +1,25 @@
-from Controller.ClassesAbstratas.ControleArmazenamentoAbs import ControleArmazenamentoAbs
 from Controller.ClassesAbstratas.ControleTratamentoEmailAbs import ControleTratamentoEmailAbs
-from Model.ClassesAbstratas.TratarEmail import TratarEmail
 from View.ClassesAbstratas.Dados import Dados
 
 
 class Email(Dados):
-    def __init__(self, tratador: ControleTratamentoEmailAbs, controlar: ControleArmazenamentoAbs):
+    def __init__(self, tratador: ControleTratamentoEmailAbs):
         super().__init__()
         self.__tratador = tratador
-        self.__controlar = controlar
+        self.__dado = []
 
     def capturar_dados(self):
         while True:
             try:
                 email = input('Digite seu email: ')
                 self.__tratador.tratar_email(email)
-                self.__controlar.armazenar_dado({'E-mail' : email})
-                return self.__controlar.imprimir_dados()
+                self.__dado.append(email)
+                return
             except ValueError as e:
                 print(e)
 
+    def get_dado(self):
+        return self.__dado
 
 
 

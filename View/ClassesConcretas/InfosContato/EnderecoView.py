@@ -3,20 +3,23 @@ from Controller.ClassesAbstratas.ControleTratamentoEnderecoAbs import ControleTr
 from View.ClassesAbstratas.Dados import Dados
 
 class Endereco(Dados):
-    def __init__(self, tratador: ControleTratamentoEnderecoAbs, controlar: ControleArmazenamentoAbs):
+    def __init__(self, tratador: ControleTratamentoEnderecoAbs):
         super().__init__()
         self.__tratador = tratador
-        self.__controlar = controlar
+        self.__dado = []
 
     def capturar_dados(self):
         while True:
             try:
                 endereco = input('Digite seu endereco: ')
                 self.__tratador.tratar_endereco(endereco)
-                self.__controlar.armazenar_dado({"Endereço" : endereco})
-                return self.__controlar.imprimir_dados()
+                self.__dado.append(endereco)
+                return
             except ValueError as e:
                 print(e)
+
+    def get_dado(self):
+        return self.__dado
 
 
 

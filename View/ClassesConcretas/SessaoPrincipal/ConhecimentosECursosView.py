@@ -1,11 +1,10 @@
-from Controller.ClassesAbstratas.ControleArmazenamentoAbs import ControleArmazenamentoAbs
 from View.ClassesAbstratas.Dados import Dados
 
 
 class ConhecimentoseCursos(Dados):
-    def __init__(self, armazenar: ControleArmazenamentoAbs):
+    def __init__(self):
         super().__init__()
-        self.__armazenar = armazenar
+        self.__dado = []
 
     def capturar_dados(self):
         while True:
@@ -32,9 +31,11 @@ class ConhecimentoseCursos(Dados):
             elif len(cc) == 0:
                 print("Digite algo!")
             else:
-                        self.__armazenar.armazenar_dado({"Capacitação" : cc})
-                        self.__armazenar.imprimir_dados()
-                        return
+                self.__dado.append(cc)
+                return
+
+    def get_dado(self):
+        return self.__dado
 
 
 

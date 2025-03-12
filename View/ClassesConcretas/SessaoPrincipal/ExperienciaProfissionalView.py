@@ -1,12 +1,11 @@
-from Controller.ClassesAbstratas.ControleArmazenamentoAbs import ControleArmazenamentoAbs
 from Model.ClassesAbstratas.TratarData import TratarData
 from View.ClassesAbstratas.Dados import Dados
 
 
 class ExperienciaProfissional(Dados):
-    def __init__(self, tratador: TratarData, armazenar: ControleArmazenamentoAbs):
+    def __init__(self, tratador: TratarData):
         super().__init__()
-        self.__armazenar = armazenar
+        self.__dado = []
         self.__tratador = tratador
 
     def capturar_dados(self):
@@ -37,12 +36,14 @@ class ExperienciaProfissional(Dados):
                             fim = input(f"Digite a data de saída da empresa {empresa.title()} (MM/AAAA):\n"
                                         f"Digite 'Atualmente' se ainda não estiver terminado: ")
                             if self.__tratador.tratar_mes_ano(fim):
-                                self.__armazenar.armazenar_dado({"Empresa": empresa, "Início": inicio, "Término": fim})
-                                self.__armazenar.imprimir_dados()
+                                self.__dado.append([empresa, inicio, fim])
                                 return
                             else:
                                 pass
                     else:
                         pass
+
+    def get_dado(self):
+        return self.__dado
 
 
