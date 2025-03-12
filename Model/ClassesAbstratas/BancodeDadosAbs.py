@@ -5,5 +5,11 @@ class BancodeDadosAbs(ABC):
         pass
 
     @abstractmethod
-    def armazenar_dado(self,nome,tabela, coluna, dado):
+    def armazenar_primary_key(self,nome,tabela, coluna):
+        pass
+    @abstractmethod
+    def update_linha(self, nome, tabela, coluna, dado):
+        pass
+
+    def fechar_conexao(self):
         pass
