@@ -78,12 +78,13 @@ class BancodeDados(BancodeDadosAbs):
 
         self.conexao.commit()
 
-    def armazenar_dado(self, tabela, coluna, dado):
+    def armazenar_dado(self, nome, tabela, coluna, dado):
         if not self.conexao:
             self.conectar()
-        self.cursor.execute(f"INSERT INTO {tabela} ({coluna}) VALUES (?)", (dado,))
+        self.cursor.execute(f"INSERT INTO {tabela} (nome, {coluna}) VALUES (?, ?)", (nome, dado))
         self.conexao.commit()
 
     def fechar_conexao(self):
         if self.conexao:
             self.conexao.close()
+

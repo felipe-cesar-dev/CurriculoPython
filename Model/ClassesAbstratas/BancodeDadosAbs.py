@@ -5,5 +5,5 @@ class BancodeDadosAbs(ABC):
         pass
 
     @abstractmethod
-    def armazenar_dado(self,tabela, coluna, dado):
+    def armazenar_dado(self,nome,tabela, coluna, dado):
         pass
