@@ -1,14 +1,14 @@
 from Controller.ClassesAbstratas.ControleArmazenamentoAbs import ControleArmazenamentoAbs
-from Model.ClassesAbstratas.BancodeDadosAbs import BancodeDadosAbs
+from Model.ClassesAbstratas.ArmazenamentoGeralAbs import ArmazenamentoGeralAbs
 
 
 class ControleArmazenamentoConcreto(ControleArmazenamentoAbs):
-    def __init__(self, armazenar: BancodeDadosAbs):
+    def __init__(self, armazenar: ArmazenamentoGeralAbs):
         super().__init__(armazenar)
         self.__armazenar = armazenar
 
-    def armazenar_dado(self, tabela, coluna, dado):
-        self.__armazenar.armazenar_dado(tabela, coluna, dado)
+    def armazenar_dado(self, dado):
+        self.__armazenar.armazenar_dados_gerais(dado)
 
     def recuperar_dado(self):
         pass

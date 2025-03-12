@@ -1,12 +1,12 @@
-from Model.ClassesAbstratas.BancodeDadosAbs import BancodeDadosAbs
 from abc import ABC, abstractmethod
+from Model.ClassesAbstratas.ArmazenamentoGeralAbs import ArmazenamentoGeralAbs
 
 class ControleArmazenamentoAbs(ABC):
-    def __init__(self, armazenar: BancodeDadosAbs):
+    def __init__(self, armazenar: ArmazenamentoGeralAbs):
         self.__armazenar = armazenar
 
     @abstractmethod
-    def armazenar_dado(self, tabela, coluna, dado):
+    def armazenar_dado(self,dado):
         pass
     @abstractmethod
     def recuperar_dado(self):

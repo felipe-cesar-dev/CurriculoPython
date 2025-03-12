@@ -3,10 +3,9 @@ from Controller.ClassesAbstratas.ControleTratamentoAbs import ControleTratamento
 from View.ClassesAbstratas.Dados import Dados
 
 class EstadoCivil(Dados):
-    def __init__(self, tratador: ControleTratamentoAbs, controlar: ControleArmazenamentoAbs):
+    def __init__(self, tratador: ControleTratamentoAbs):
         super().__init__()
         self.__tratador = tratador
-        self.__controlar = controlar
         self.__dados = []
 
     def capturar_dados(self):
@@ -14,9 +13,9 @@ class EstadoCivil(Dados):
             try:
                 estadoc = input('Digite seu estado Civil: ')
                 self.__tratador.tratar_dado(estadoc)
-                self.__controlar.armazenar_dado('dados_unicos', 'estado_civil', estadoc)
-                self.__dados.append(f'Estado cívil: {estadoc}')
-                return self.__controlar.imprimir_dados()
+                #self.__controlar.armazenar_dado('dados_unicos', 'estado_civil', estadoc)
+                self.__dados.append(estadoc)
+                return
             except ValueError as e:
                 print(e)
 
